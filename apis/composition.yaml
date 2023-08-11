@@ -14,3 +14,5 @@ spec:
         - fromFieldPath: spec.parameters.args
           toFieldPath: spec.args
       name: controllerConfig
+      readinessChecks:
+        - type: None
