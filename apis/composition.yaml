@@ -26,20 +26,11 @@ spec:
         apiVersion: pkg.crossplane.io/v1
         kind: Provider
         spec:
-          package: xpkg.upbound.io/upbound/provider-aws-acm:v0.38.0
+          package: xpkg.upbound.io/upbound/provider-aws-s3:v0.38.0
       patches:
         - fromFieldPath: status.status.controllerConfigName
-          toFieldPath: metadata.name
-          transforms:
-            - type: match
-              match:
-                patterns:
-                  - type: regexp
-                    regexp: '.*'
-                    result: provider-aws-acm
-        - fromFieldPath: status.status.controllerConfigName
           toFieldPath: spec.controllerConfigRef.name
-      name: provider-aws-acm
+      name: provider-aws-s3
       readinessChecks:
         - type: MatchString
           fieldPath: status.conditions[0].status
