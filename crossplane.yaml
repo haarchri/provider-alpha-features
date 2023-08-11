@@ -1,16 +1,15 @@
 apiVersion: meta.pkg.crossplane.io/v1
 kind: Configuration
 metadata:
-  name: configuration-scratch
+  name: configuration-provider-alpha-features
   annotations:
-    meta.crossplane.io/maintainer: The Getting Started Organization <support@starter.org>
-    meta.crossplane.io/source: github.com/upbound/configuration-scratch
+    meta.crossplane.io/maintainer: haarchri
+    meta.crossplane.io/source: github.com/haarchri/provider-alpha-features
     meta.crossplane.io/license: Apache-2.0
     meta.crossplane.io/description: |
-      This starter configuration is completely empty.
+      This configuration deploys controllerconfig
     meta.crossplane.io/readme: |
-      This starter configuration is completely empty, allowing you to start
-      entirely from scratch.
+      This configuration deploys controllerconfig
 spec:
   crossplane:
-    version: ">=v1.7.0-0"
+    version: ">=v1.12.1-0"

@@ -1,0 +1,9 @@
+apiVersion: wrapper.mcp.upbound.io/v1alpha1
+kind: ControllerConfig
+metadata:
+  name: management-policies
+  namespace: default
+spec:
+  parameters:
+    args:
+      - --enable-management-policies

@@ -1,0 +1,42 @@
+apiVersion: apiextensions.crossplane.io/v1
+kind: CompositeResourceDefinition
+metadata:
+  name: xcontrollerconfigs.wrapper.mcp.upbound.io
+spec:
+  group: wrapper.mcp.upbound.io
+  names:
+    kind: XControllerConfig
+    plural: xcontrollerconfigs
+  claimNames:
+    kind: ControllerConfig
+    plural: controllerconfigs
+  connectionSecretKeys:
+  - kubeconfig
+  versions:
+  - name: v1alpha1
+    served: true
+    referenceable: true
+    schema:
+      openAPIV3Schema:
+        type: object
+        properties:
+          spec:
+            type: object
+            properties:
+              parameters:
+                type: object
+                description: ControllerConfig configuration parameters.
+                properties:
+                  args:
+                    description: 'Arguments to the entrypoint. The docker image''s CMD
+                      is used if this is not provided. Variable references $(VAR_NAME)
+                      are expanded using the container''s environment. If a variable cannot
+                      be resolved, the reference in the input string will be unchanged.
+                      The $(VAR_NAME) syntax can be escaped with a double $$, ie: $$(VAR_NAME).
+                      Escaped references will never be expanded, regardless of whether
+                      the variable exists or not. Cannot be updated. More info: https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#running-a-command-in-a-shell'
+                    items:
+                      type: string
+                    type: array
+            required:
+            - parameters

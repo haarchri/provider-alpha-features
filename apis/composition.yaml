@@ -1,0 +1,16 @@
+apiVersion: apiextensions.crossplane.io/v1
+kind: Composition
+metadata:
+  name: xcontrollerconfigs.wrapper.mcp.upbound.io
+spec:
+  compositeTypeRef:
+    apiVersion: wrapper.mcp.upbound.io/v1alpha1
+    kind: XControllerConfig
+  resources:
+    - base:
+        apiVersion: pkg.crossplane.io/v1alpha1
+        kind: ControllerConfig
+      patches:
+        - fromFieldPath: spec.parameters.args
+          toFieldPath: spec.args
+      name: controllerConfig
